@@ -22,9 +22,11 @@ $(function() {
 
   document.onkeydown = function() {
     var key = event.keyCode;
+    //console.log(key);
     if (key == 38) {
       hit--;
       $("#hit").text(hit);
+      console.log(pos);
       $(".item")
         .eq(pos)
         .removeClass("hero");
@@ -41,6 +43,7 @@ $(function() {
     if (key == 40) {
       hit--;
       $("#hit").text(hit);
+      console.log(pos);
       $(".item")
         .eq(pos)
         .removeClass("hero");
@@ -76,6 +79,7 @@ $(function() {
         .eq(pos)
         .removeClass("hero");
       if (pos % 10 == 9) {
+        console.log(pos);
         pos = pos - 9;
       } else {
         pos = pos + 1;
@@ -112,7 +116,7 @@ $(function() {
         .eq(pos)
         .removeClass("eat");
       count++;
-      hit += 10;
+      hit += 5;
       $("#hit").text(hit);
       $("#count").text(count);
       setTimeout(proverkaPos, 1000);
