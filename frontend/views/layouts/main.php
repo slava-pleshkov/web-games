@@ -1,83 +1,141 @@
 <?php
-
 /* @var $this \yii\web\View */
+
 /* @var $content string */
 
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
-use common\widgets\Alert;
+use frontend\components\IconsWidget;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+	<?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
+	<?php $this->head() ?>
 </head>
-<body>
+<body class="is-preload">
 <?php $this->beginBody() ?>
+<!-- Wrapper -->
+<div id="wrapper">
 
-<div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>';
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
-    ?>
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
+            <!-- Header -->
+            <header id="header">
+                <a href="<?= Url::to(['site/index']); ?>" class="logo"><strong><?= Yii::$app->name ?></strong></a>
+            </header>
+
+            <?= $content ?>
+
+        </div>
     </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+
+            <!-- Search -->
+            <section id="search" class="alt">
+                <form method="post" action="#">
+                    <input type="text" name="query" id="query" placeholder="Search"/>
+                </form>
+            </section>
+
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>Menu</h2>
+                </header>
+                <ul>
+                    <li><a href="<?= Url::to(['site/index']); ?>">Homepage</a></li>
+                    <li><a href="generic.html">Generic</a></li>
+                    <li><a href="elements.html">Elements</a></li>
+                    <li>
+                        <span class="opener">Submenu</span>
+                        <ul>
+                            <li><a href="#">Lorem Dolor</a></li>
+                            <li><a href="#">Ipsum Adipiscing</a></li>
+                            <li><a href="#">Tempus Magna</a></li>
+                            <li><a href="#">Feugiat Veroeros</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Etiam Dolore</a></li>
+                    <li><a href="#">Adipiscing</a></li>
+                    <li>
+                        <span class="opener">Another Submenu</span>
+                        <ul>
+                            <li><a href="#">Lorem Dolor</a></li>
+                            <li><a href="#">Ipsum Adipiscing</a></li>
+                            <li><a href="#">Tempus Magna</a></li>
+                            <li><a href="#">Feugiat Veroeros</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Maximus Erat</a></li>
+                    <li><a href="#">Sapien Mauris</a></li>
+                    <li><a href="#">Amet Lacinia</a></li>
+                </ul>
+            </nav>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Ante interdum</h2>
+                </header>
+                <div class="mini-posts">
+                    <article>
+                        <a href="#" class="image"><img src="images/pic07.jpg" alt=""/></a>
+                        <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="images/pic08.jpg" alt=""/></a>
+                        <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="images/pic09.jpg" alt=""/></a>
+                        <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+                    </article>
+                </div>
+                <ul class="actions">
+                    <li><a href="#" class="button">More</a></li>
+                </ul>
+            </section>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Get in touch</h2>
+                </header>
+                <p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+                <ul class="contact">
+                    <li class="fa-envelope-o"><a href="#">information@untitled.tld</a></li>
+                    <li class="fa-phone">(000) 000-0000</li>
+                    <li class="fa-home">1234 Somewhere Road #8254<br/>
+                        Nashville, TN 00000-0000
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <p class="copyright"><?= Yii::$app->name ?> <?= date('Y') ?>. All rights reserved.</p>
+            </footer>
+
+        </div>
+    </div>
+
 </div>
-
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
-
 <?php $this->endBody() ?>
 </body>
 </html>
 <?php $this->endPage() ?>
+
