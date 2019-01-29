@@ -1,10 +1,10 @@
 <?php
 
-namespace frontend\components;
+namespace frontend\widgets;
 
 use yii\base\Widget;
 
-class IconsWidget extends Widget
+class SettingWidget extends Widget
 {
 
 	public function init()
@@ -15,6 +15,6 @@ class IconsWidget extends Widget
 	public function run()
 	{
 		$main = 'test';
-		return $this->render('components/home', ['main' => $main]);
+		return $this->render('settingwidget');
 	}
 }

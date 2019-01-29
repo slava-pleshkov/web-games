@@ -1,6 +1,6 @@
 <?php
 /* @var $this yii\web\View */
-$this->title = 'Home';
+$this->title = Yii::$app->name;
 ?>
 <section id="banner">
     <div class="content">
