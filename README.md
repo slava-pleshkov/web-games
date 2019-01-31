@@ -6,7 +6,6 @@
         <img src="https://yii2editorial.slavapleshkov.com/images/logo.jpg" height="100px">
     </a>
     <h1 align="center">yii2-editorial</h1>
-    <br>
 </p>
 <p align="center">🌈 The blog was created using the Yii2 Framework</p>
 

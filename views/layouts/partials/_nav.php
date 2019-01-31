@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Url;
+use yii\helpers\Html;
 
 ?>
 <nav id="menu">
@@ -8,11 +9,9 @@ use yii\helpers\Url;
         <h2>Menu</h2>
     </header>
     <ul>
-        <li><a href="<?= Url::to(['site/index']); ?>">Homepage</a></li>
-        <li><a href="generic.html">Generic</a></li>
-        <li><a href="elements.html">Elements</a></li>
+        <li><a href="<?= Url::to(['site/index']); ?>">Home</a></li>
         <li>
-            <span class="opener">Submenu</span>
+            <span class="opener">Categories</span>
             <ul>
                 <li><a href="#">Lorem Dolor</a></li>
                 <li><a href="#">Ipsum Adipiscing</a></li>
@@ -20,19 +19,21 @@ use yii\helpers\Url;
                 <li><a href="#">Feugiat Veroeros</a></li>
             </ul>
         </li>
-        <li><a href="#">Etiam Dolore</a></li>
-        <li><a href="#">Adipiscing</a></li>
+        <li><a href="<?= Url::to(['blog/index']); ?>">Blog</a></li>
+        <li><a href="<?= Url::to(['site/about']); ?>">About</a></li>
+        <li><a href="<?= Url::to(['site/contact']); ?>">Contact</a></li>
         <li>
-            <span class="opener">Another Submenu</span>
+            <span class="opener">Account</span>
             <ul>
-                <li><a href="#">Lorem Dolor</a></li>
-                <li><a href="#">Ipsum Adipiscing</a></li>
-                <li><a href="#">Tempus Magna</a></li>
-                <li><a href="#">Feugiat Veroeros</a></li>
+				<?php if (Yii::$app->user->isGuest): ?>
+                    <li><a href="<?= Url::to(['auth/login']); ?>">Login</a></li>
+                    <li><a href="<?= Url::to(['auth/signup']); ?>">Create an Account</a></li>
+                    <li><a href="<?= Url::to(['auth/request-password-reset']); ?>">Reset Password</a></li>
+				<?php else: ?>
+                    <li><a href="<?= Url::to(['auth/logout']); ?>" data-method="post">Logout</a></li>
+                    <li><?= Html::a('Logout', ['site/logout'], ['data' => ['method' => 'post']]) ?></li>
+				<?php endif; ?>
             </ul>
         </li>
-        <li><a href="#">Maximus Erat</a></li>
-        <li><a href="#">Sapien Mauris</a></li>
-        <li><a href="#">Amet Lacinia</a></li>
     </ul>
 </nav>
