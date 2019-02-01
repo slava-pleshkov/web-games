@@ -5,23 +5,24 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "sociallinks".
+ * This is the model class for table "setting".
  *
  * @property int $id
- * @property string $icon
- * @property string $url
- * @property int $status
+ * @property string $about_footer
+ * @property string $mail
+ * @property string $phone
+ * @property string $address
  * @property int $created_at
  * @property int $updated_at
  */
-class Sociallinks extends \yii\db\ActiveRecord
+class Setting extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'sociallinks';
+        return 'setting';
     }
 
     /**
@@ -30,9 +31,10 @@ class Sociallinks extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['status', 'created_at', 'updated_at'], 'integer'],
+            [['about_footer'], 'string'],
             [['created_at', 'updated_at'], 'required'],
-            [['icon', 'url'], 'string', 'max' => 255],
+            [['created_at', 'updated_at'], 'integer'],
+            [['mail', 'phone', 'address'], 'string', 'max' => 255],
         ];
     }
 
@@ -43,9 +45,10 @@ class Sociallinks extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'icon' => 'Icon',
-            'url' => 'Url',
-            'status' => 'Status',
+            'about_footer' => 'About Footer',
+            'mail' => 'Mail',
+            'phone' => 'Phone',
+            'address' => 'Address',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
