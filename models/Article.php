@@ -16,8 +16,6 @@ use Yii;
  * @property int $category_id
  * @property int $user_id
  * @property int $status
- * @property int $created_at
- * @property int $updated_at
  *
  * @property Category $category
  * @property Seo $seo
@@ -40,8 +38,7 @@ class Article extends \yii\db\ActiveRecord
     {
         return [
             [['text'], 'string'],
-            [['seo_id', 'category_id', 'user_id', 'status', 'created_at', 'updated_at'], 'integer'],
-            [['created_at', 'updated_at'], 'required'],
+            [['seo_id', 'category_id', 'user_id', 'status'], 'integer'],
             [['title', 'url', 'image'], 'string', 'max' => 255],
             [['url'], 'unique'],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
@@ -65,8 +62,6 @@ class Article extends \yii\db\ActiveRecord
             'category_id' => 'Category ID',
             'user_id' => 'User ID',
             'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
         ];
     }
 

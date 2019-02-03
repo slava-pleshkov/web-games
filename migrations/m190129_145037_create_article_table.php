@@ -22,8 +22,8 @@ class m190129_145037_create_article_table extends Migration
 			'category_id' => $this->integer(),
 			'user_id' => $this->integer(),
 			'status' => $this->integer(),
-			'created_at' => $this->integer()->notNull(),
-			'updated_at' => $this->integer()->notNull(),
+//			'created_at' => $this->integer()->notNull(),
+//			'updated_at' => $this->integer()->notNull(),
 		]);
 		$this->createIndex(
 			'idx-article-seo_id',

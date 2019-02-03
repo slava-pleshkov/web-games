@@ -18,8 +18,8 @@ class m190129_144823_create_seo_table extends Migration
 			'description' => $this->string(),
 			'keyword' => $this->string(),
 			'status' => $this->integer(),
-			'created_at' => $this->integer()->notNull(),
-			'updated_at' => $this->integer()->notNull(),
+//			'created_at' => $this->integer()->notNull(),
+//			'updated_at' => $this->integer()->notNull(),
 		]);
 	}
 

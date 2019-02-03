@@ -18,8 +18,8 @@ class m190129_144906_create_setting_table extends Migration
 			'mail' => $this->string(),
 			'phone' => $this->string(),
 			'address' => $this->string(),
-			'created_at' => $this->integer()->notNull(),
-			'updated_at' => $this->integer()->notNull(),
+//			'created_at' => $this->integer()->notNull(),
+//			'updated_at' => $this->integer()->notNull(),
         ]);
     }
 

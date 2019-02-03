@@ -18,8 +18,8 @@ class m190129_144933_create_category_table extends Migration
 			'url' => $this->string()->unique(),
 			'seo_id' => $this->integer(),
 			'status' => $this->integer(),
-			'created_at' => $this->integer()->notNull(),
-			'updated_at' => $this->integer()->notNull(),
+//			'created_at' => $this->integer()->notNull(),
+//			'updated_at' => $this->integer()->notNull(),
 		]);
 		$this->createIndex(
 			'idx-category-seo_id',

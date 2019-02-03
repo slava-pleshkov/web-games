@@ -12,8 +12,6 @@ use Yii;
  * @property string $description
  * @property string $keyword
  * @property int $status
- * @property int $created_at
- * @property int $updated_at
  *
  * @property Article[] $articles
  * @property Category[] $categories
@@ -34,8 +32,7 @@ class Seo extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['status', 'created_at', 'updated_at'], 'integer'],
-            [['created_at', 'updated_at'], 'required'],
+            [['status'], 'integer'],
             [['title', 'description', 'keyword'], 'string', 'max' => 255],
         ];
     }
@@ -51,8 +48,6 @@ class Seo extends \yii\db\ActiveRecord
             'description' => 'Description',
             'keyword' => 'Keyword',
             'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
         ];
     }
 

@@ -3,6 +3,7 @@
 namespace app\widgets;
 
 use yii\base\Widget;
+use app\models\Sociallink;
 
 class IconsWidget extends Widget
 {
@@ -14,7 +15,7 @@ class IconsWidget extends Widget
 
 	public function run()
 	{
-		$main = 'test';
-		return $this->render('iconswidget');
+		$main = Sociallink::find()->where(['status' => 1])->all();
+		return $this->render('iconswidget', ['main' => $main]);
 	}
 }

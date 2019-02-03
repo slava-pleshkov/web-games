@@ -12,8 +12,6 @@ use Yii;
  * @property string $url
  * @property int $seo_id
  * @property int $status
- * @property int $created_at
- * @property int $updated_at
  *
  * @property Article[] $articles
  * @property Seo $seo
@@ -34,8 +32,7 @@ class Category extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['seo_id', 'status', 'created_at', 'updated_at'], 'integer'],
-            [['created_at', 'updated_at'], 'required'],
+            [['seo_id', 'status'], 'integer'],
             [['name', 'url'], 'string', 'max' => 255],
             [['url'], 'unique'],
             [['seo_id'], 'exist', 'skipOnError' => true, 'targetClass' => Seo::className(), 'targetAttribute' => ['seo_id' => 'id']],
@@ -53,8 +50,6 @@ class Category extends \yii\db\ActiveRecord
             'url' => 'Url',
             'seo_id' => 'Seo ID',
             'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
         ];
     }
 

@@ -12,8 +12,6 @@ use Yii;
  * @property string $mail
  * @property string $phone
  * @property string $address
- * @property int $created_at
- * @property int $updated_at
  */
 class Setting extends \yii\db\ActiveRecord
 {
@@ -32,8 +30,6 @@ class Setting extends \yii\db\ActiveRecord
     {
         return [
             [['about_footer'], 'string'],
-            [['created_at', 'updated_at'], 'required'],
-            [['created_at', 'updated_at'], 'integer'],
             [['mail', 'phone', 'address'], 'string', 'max' => 255],
         ];
     }
@@ -49,8 +45,6 @@ class Setting extends \yii\db\ActiveRecord
             'mail' => 'Mail',
             'phone' => 'Phone',
             'address' => 'Address',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
         ];
     }
 }

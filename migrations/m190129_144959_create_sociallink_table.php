@@ -14,11 +14,12 @@ class m190129_144959_create_sociallink_table extends Migration
     {
         $this->createTable('sociallink', [
             'id' => $this->primaryKey(),
+			'title' => $this->string(),
 			'icon' => $this->string(),
 			'url' => $this->string(),
 			'status' => $this->integer(),
-			'created_at' => $this->integer()->notNull(),
-			'updated_at' => $this->integer()->notNull(),
+//			'created_at' => $this->integer()->notNull(),
+//			'updated_at' => $this->integer()->notNull(),
         ]);
     }
 
