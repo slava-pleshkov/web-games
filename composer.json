@@ -17,6 +17,7 @@
         "php": ">=5.4.0",
         "yiisoft/yii2": "~2.0.14",
         "yiisoft/yii2-bootstrap": "~2.0.0",
+        "ext-gd": "*",
         "yiisoft/yii2-swiftmailer": "~2.0.0"
     },
     "require-dev": {
@@ -36,7 +37,8 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "yii\\composer\\Installer::postInstall"
+            "yii\\composer\\Installer::postInstall",
+            "sh post-install-cmd.sh"
         ],
         "post-create-project-cmd": [
             "yii\\composer\\Installer::postCreateProject",
